@@ -1,0 +1,9 @@
+1.  (x)(Px->Ax)			Pr
+2.  (\exists x)(Px*Qx)	Pr
+3.  Pa*Qa				EI 2
+4.  Pa->Aa				UI 1
+5.  Pa					Simp 3
+6.  Aa					MP 4,5
+7.  Qa					Simp 3
+8.  Qa*Aa				Conj 7,6
+9.  (\exists x)(Qx*Ax)	EG 8
