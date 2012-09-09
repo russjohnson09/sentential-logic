@@ -12,8 +12,19 @@ confirm that a Hilbert style proof is correct.
 
 import sys
 import re
-from Grammar import Syntax
+from syntax import Grammar
 
+
+def fileToListOfParse(nameoffile):
+    a = Grammar()
+    b = a.syntax()
+    file1 = open(nameoffile,'r')
+    lst1 = []
+    for line in file1:
+        lst1.append(b.parseString(line))
+    return lst1
+        
+    
 
 
 def filetodict(nameoffile):
@@ -99,6 +110,6 @@ def verifydict(dict1):
 
 
 
-dict1 = filetodict('quacker.txt')
-print dict1
-print verifydict(dict1)
+lst1 = fileToListOfParse('quacker2.txt')
+print lst1[1].linenumber
+print lst1[5].reason

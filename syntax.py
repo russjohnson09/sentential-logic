@@ -1,9 +1,12 @@
 from pyparsing import *
 
 
-class Grammar():
+class Grammar:
+    
+    def __init__(self):
+        pass
 
-    def Syntax(self):
+    def syntax(self):
         period = Literal('.').suppress()
         comma = Literal(',').suppress()
         lpar  = Literal('(') .suppress()
@@ -17,6 +20,6 @@ class Grammar():
         expr = Forward().setResultsName('expr')
         atom = statement | Group(lpar + expr + rpar)
         expr << Optional(quant) + atom + ZeroOrMore( op + expr )
-        reason = Word(alphas) + Optional(Word(nums) + comma + Optional(Word(nums)))
+        reason = (Word(alphas) + Optional(Word(nums) + comma + Optional(Word(nums)))).setResultsName("reason")
         line = linenumber + expr + reason
         return line
