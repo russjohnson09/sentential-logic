@@ -22,37 +22,7 @@ def fileToListOfParse(nameoffile):
     lst1 = []
     for line in file1:
         lst1.append(b.parseString(line))
-    return lst1
-        
-    
-
-
-def filetodict(nameoffile):
-    file1 = open(nameoffile,'r')
-    dict1 = {}
-    for line in file1:
-        lst1 = line.strip().split('//')
-        dict1[lst1[0]] = filetodicthelper(lst1)
-    file1.close()
-    return dict1
-    
-        
-
-def filetodicthelper(lst1):
-    lst2 = []
-    lst2.append(lst1[1])
-    lst3 = lst1[2].split(' ')
-    lst2.append(lst3[0])
-    
-    if len(lst3) > 1:
-        lst4 = lst3[1].split(',')
-        for element in lst4:
-            lst2.append(element)
-        return lst2
-    else:
-        if len(lst3) == 2:
-            lst2.append(lst3[1])
-        return lst2
+    return lst1    
     
     
 def Pr(dict1,line):
@@ -100,13 +70,6 @@ def UI(dict1,line):
     str1 = re.sub(r'\*','\*',str1)
     p = re.compile(str1)
     return bool(p.match(dict1[line][0]))
-
-    
-def verifydict(dict1):
-    lst = []
-    for i in dict1:
-        lst.append(eval(dict1[i][1] + '(dict1, i)'))
-    return all(lst)
 
 
 
