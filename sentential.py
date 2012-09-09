@@ -5,7 +5,7 @@ Main Methods
 
 The following are all of the methods 
 needed to apply logic rules and 
-confirm that a Hilbert sle proof is correct.
+confirm that a Hilbert style proof is correct.
 
 ----
 """
