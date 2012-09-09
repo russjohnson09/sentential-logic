@@ -12,6 +12,8 @@ confirm that a Hilbert style proof is correct.
 
 import sys
 import re
+from Grammar import Syntax
+
 
 
 def filetodict(nameoffile):
