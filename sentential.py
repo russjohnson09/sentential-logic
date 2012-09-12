@@ -70,9 +70,8 @@ def mp(line1, line2, line3):
     
 
 def eg(line1, line2):
-    """
-    The inverse of EI.
-    """
+    "The inverse of ei."
+    return ei(line2, line1)
 
 def conj(line1, line2, line3):
     str1 = ''.join(list(parsed[int(line1)-1].expr))
