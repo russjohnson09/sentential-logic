@@ -11,7 +11,7 @@ class Grammar:
         comma = Literal(',').suppress()
         lpar  = Literal('(') .suppress()
         rpar  = Literal( ')' ).suppress()
-        linenumber = (Word(nums) + period).setParseAction(lambda t: int(t[0])).setResultsName("linenumber")
+        linenumber = (Word(nums) + period).setResultsName("linenumber")
         op = oneOf( '\/ -> *').setResultsName('op')
         variable = Word(srange('[a-z]'),max=1).setResultsName('variable')
         opvariable = Word(srange('[a-z]'),max=1).setResultsName('opvariable')
@@ -20,6 +20,9 @@ class Grammar:
         expr = Forward().setResultsName('expr')
         atom = statement | Group(lpar + expr + rpar)
         expr << Optional(quant) + atom + ZeroOrMore( op + expr )
-        reason = (Word(alphas) + Optional(Word(nums) + comma + Optional(Word(nums)))).setResultsName("reason")
+        reason = (Word(alphas) + Optional(Word(nums)) + Optional(comma) + Optional(Word(nums))).setResultsName("reason")
         line = linenumber + expr + reason
         return line
+    
+    
+        
